@@ -14,6 +14,7 @@ pacman -S --noconfirm \
     gnome-control-center \
     gnome-backgrounds \
     flatpak \
-    ptyxis
+    ptyxis \
+    gnome-disk-utility
 
 systemctl enable gdm
