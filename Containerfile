@@ -1,3 +1,9 @@
+# Give Leonid build scripts their own folder, making modularity for us easier. These will be called in once the base OS is built.
+FROM scratch AS ctx
+COPY build_files /
+
+# Original build scripts from bootcrew. For now, let's leave this part in tact to make syncing this with the upstream repo eaiser.'
+
 FROM docker.io/archlinux/archlinux:latest
 
 # Move everything from `/var` to `/usr/lib/sysimage` so behavior around pacman remains the same on `bootc usroverlay`'d systems
@@ -29,5 +35,12 @@ RUN sed -i 's|^HOME=.*|HOME=/var/home|' "/etc/default/useradd" && \
 # Setup a temporary root passwd (changeme) for dev purposes
 # RUN pacman -S whois --noconfirm
 # RUN usermod -p "$(echo "changeme" | mkpasswd -s)" root
+
+# Call in Leonid's build scripts.
+RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
+    --mount=type=cache,dst=/var/cache \
+    --mount=type=cache,dst=/var/log \
+    --mount=type=tmpfs,dst=/tmp \
+    /ctx/build.sh
 
 RUN bootc container lint
