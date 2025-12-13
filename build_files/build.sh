@@ -2,7 +2,5 @@
 
 set -ouex pipefail
 
-pacman -S --noconfirm \
-    nano \
-    micro \
-    sudo
+# Install the base system packages.
+/ctx/03-base.sh
