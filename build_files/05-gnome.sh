@@ -10,10 +10,12 @@ pacman -S --noconfirm \
     gdm \
     gnome-initial-setup \
     xdg-desktop-portal-gnome \
-    nautilus \
     gnome-control-center \
-    gnome-backgrounds \
-    flatpak \
+    gnome-backgrounds
+
+# Install GNOME applications
+pacman -S --noconfirm \
+    nautilus \
     ptyxis \
     gnome-disk-utility
 
