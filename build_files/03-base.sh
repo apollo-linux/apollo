@@ -36,5 +36,8 @@ pacman -S --noconfirm \
     htop \
     git
 
+# Install spice-vdagent
+pacman -S --noconfirm spice-vdagent
+
 # Enable Network Manager
 systemctl enable NetworkManager.service
