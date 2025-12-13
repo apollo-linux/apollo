@@ -1,8 +1,8 @@
-# Give Leonid build scripts their own folder, making modularity for us easier. These will be called in once the base OS is built.
+# Give Apollo-specific build scripts their own folder, making modularity for us easier. These will be called in once the base OS is built.
 FROM scratch AS ctx
 COPY build_files /
 
-# Original build scripts from bootcrew. For now, let's leave this part in tact to make syncing this with the upstream repo eaiser.'
+# Original build scripts from bootcrew. For now, let's leave this part in tact to make syncing this with the upstream repo eaiser.
 
 FROM docker.io/archlinux/archlinux:latest
 
@@ -32,11 +32,7 @@ RUN sed -i 's|^HOME=.*|HOME=/var/home|' "/etc/default/useradd" && \
     printf "d /var/roothome 0700 root root -\nd /run/media 0755 root root -" | tee -a "/usr/lib/tmpfiles.d/bootc-base-dirs.conf" && \
     printf '[composefs]\nenabled = yes\n[sysroot]\nreadonly = true\n' | tee "/usr/lib/ostree/prepare-root.conf"
 
-# Setup a temporary root passwd (changeme) for dev purposes
-# RUN pacman -S whois --noconfirm
-# RUN usermod -p "$(echo "changeme" | mkpasswd -s)" root
-
-# Call in Leonid's build scripts.
+# Call in Apollo's build scripts.
 RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
     --mount=type=cache,dst=/var/cache \
     --mount=type=cache,dst=/var/log \

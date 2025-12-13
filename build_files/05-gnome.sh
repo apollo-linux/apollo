@@ -19,4 +19,10 @@ pacman -S --noconfirm \
     ptyxis \
     gnome-disk-utility
 
+# Install Acessibility Tools
+pacman -S --noconfirm \
+    orca \
+    speech-dispatcher \
+    espeakup
+
 systemctl enable gdm
