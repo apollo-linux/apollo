@@ -20,6 +20,9 @@ systemctl mask systemd-firstboot.service
 # Make sure that brew can be used with bash
 echo "source /etc/profile.d/brew.sh" | tee -a /etc/bash.bashrc
 
+# Make sure terminals use starship by default
+echo "eval "$(starship init bash)"" | tee -a /etc/bash.bashrc
+
 # Build the gschema overrides
 echo "Build the gschema overrides"
 glib-compile-schemas --strict /usr/share/glib-2.0/schemas
