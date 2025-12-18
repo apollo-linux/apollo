@@ -27,26 +27,6 @@ pacman -S --noconfirm \
     power-profiles-daemon \
     gamemode
 
-# Install flatpak and distrobox
-pacman -S --noconfirm \
-    distrobox \
-    podman \
-    docker \
-
-# Install pre-included terminal applications
-pacman -S --noconfirm \
-    starship \
-    bash-completion \
-    fish \
-    zsh \
-    hyfetch \
-    fastfetch \
-    nano \
-    micro \
-    vim \
-    htop \
-    git
-
 # Install spice-vdagent
 pacman -S --noconfirm spice-vdagent
 

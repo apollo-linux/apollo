@@ -11,9 +11,6 @@ visudo -c -f /etc/sudoers.d/wheel-group
 systemctl enable NetworkManager.service
 systemctl enable systemd-resolved.service
 
-# Enable gdm
-systemctl enable gdm
-
 # Disable systemd's firstboot
 systemctl mask systemd-firstboot.service
 
@@ -22,7 +19,3 @@ echo "source /etc/profile.d/brew.sh" | tee -a /etc/bash.bashrc
 
 # Make sure terminals use starship by default
 echo "eval "$(starship init bash)"" | tee -a /etc/bash.bashrc
-
-# Build the gschema overrides
-echo "Build the gschema overrides"
-glib-compile-schemas --strict /usr/share/glib-2.0/schemas
