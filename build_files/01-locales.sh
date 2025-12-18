@@ -3,9 +3,7 @@
 set -ouex pipefail
 
 sed -i 's/^NoExtract/#NoExtract/' /etc/pacman.conf
-pacman -Sy --noconfirm glibc
+pacman -Sy --noconfirm glibc glibc-locales
 
-echo "Enabling locales"
+echo "Setting the default locale..."
 echo "LANG=en_US.UTF-8" >> /etc/locale.conf
-sed -i 's/^#\(.*\.UTF-8\)/\1/' /etc/locale.gen
-locale-gen
