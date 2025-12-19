@@ -10,7 +10,7 @@ default:
     @{{ just }} --list
     
 # Build the OS image from the containerfile
-build $image_name=image_name $build_args=build_args:
+build-containerfile $image_name=image_name $build_args=build_args:
     sudo podman build ${build_args} -t "${image_name}:latest" .
 
 bootc *ARGS:
