@@ -90,7 +90,7 @@ jobs:
         with:
           containerfiles: |
             ./Containerfile
-          args:
+          build-args:
             IMAGE_NAME=${{ env.IMAGE_NAME }}
           image: ${{ env.IMAGE_NAME }}
           tags: ${{ steps.metadata.outputs.tags }}
