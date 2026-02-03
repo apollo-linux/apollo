@@ -13,3 +13,7 @@ just generate-bootable-image # Generates a bootable image for you using bootc!
 ```
 
 Then you can run the `bootable.img` as your boot disk in your preferred hypervisor. GNOME Boxes is recommended and can be installed as a flatpak with minimal effort.
+
+## Usage
+
+Rebasing from an existing image of Fedora Atomic, or a derived image such as Bluefin or Bazzite, is very likely to cause issues that you will need to manually fix to get a functional system, and could cause further breakage. Advanced users that know what they're doing are welcome to try however. Rebasing will be supported on a best-effort basis, however clean installs (to be documented) are recommended. 
