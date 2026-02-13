@@ -4,7 +4,7 @@ just := just_executable()
 default:
     @{{ just }} --list
 
-# Update Apollo
+# Update Apollo, Flatpaks, brew packages and Distroboxes.
 update:
     sudo uupd
 
