@@ -25,7 +25,9 @@ pacman -S --noconfirm \
     networkmanager \
     sudo \
     power-profiles-daemon \
-    gamemode
+    gamemode \
+    fprintd \
+    usbutils
 
 # Install spice-vdagent
 pacman -S --noconfirm spice-vdagent
