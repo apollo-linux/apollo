@@ -13,9 +13,6 @@ echo "=== Starting Build for $IMAGE_NAME... ==="
 # Install common system tools across all Apollo imgaes
 /ctx/build_files/base/03-tools.sh
 
-# Install AUR packages
-/ctx/build_files/base/04-aur-packages.sh
-
 # Install base overrides
 /ctx/build_files/base/99-base-overrides.sh
 
