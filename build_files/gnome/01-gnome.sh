@@ -11,7 +11,8 @@ pacman -S --noconfirm \
     gnome-initial-setup \
     xdg-desktop-portal-gnome \
     gnome-control-center \
-    gnome-backgrounds
+    gnome-backgrounds \
+    gnome-keyring
 
 # Install GNOME applications
 pacman -S --noconfirm \
