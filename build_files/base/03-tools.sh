@@ -10,7 +10,6 @@ pacman -S --noconfirm \
 
 # Install pre-included terminal applications
 pacman -S --noconfirm \
-    starship \
     bash-completion \
     fish \
     zsh \
