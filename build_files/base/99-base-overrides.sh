@@ -14,5 +14,8 @@ systemctl enable systemd-resolved.service
 # Disable systemd's firstboot
 systemctl mask systemd-firstboot.service
 
+# Make sure that uupd timer is enabled
+systemctl enable uupd.timer
+
 # Make sure that brew can be used with bash
 echo "source /etc/profile.d/brew.sh" | tee -a /etc/bash.bashrc
