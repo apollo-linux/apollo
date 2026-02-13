@@ -14,6 +14,9 @@ systemctl enable systemd-resolved.service
 # Enable bluetooth
 systemctl enable bluetooth.service
 
+# Enable printing
+systemctl enable cups.service
+
 # Disable systemd's firstboot
 systemctl mask systemd-firstboot.service
 

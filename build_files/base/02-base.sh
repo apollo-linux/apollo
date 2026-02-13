@@ -29,7 +29,9 @@ pacman -S --noconfirm \
     fprintd \
     usbutils \
     bluez \
-    bluez-utils
+    bluez-utils \
+    cups \
+    cups-pdf
 
 # Install fonts
 pacman -S --noconfirm \
