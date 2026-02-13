@@ -29,6 +29,13 @@ pacman -S --noconfirm \
     fprintd \
     usbutils
 
+# Install fonts
+pacman -S --noconfirm \
+    noto-fonts \
+    noto-fonts-emoji \
+    noto-fonts-extra \
+    noto-fonts-cjk
+
 # Install spice-vdagent
 pacman -S --noconfirm spice-vdagent
 
