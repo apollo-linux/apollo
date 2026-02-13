@@ -19,10 +19,3 @@ EOL
 
 pacman -Sy --noconfirm
 
-# Install our AUR Packages
-pacman -S --noconfirm \
-    flatpak-git # Install flatpak-git so we can get access to preinstall.
-
-# Install packages that should have been installed earlier, but were blocked by aur dependencies
-pacman -S --noconfirm \
-    flatpak-builder

@@ -32,3 +32,6 @@ echo "do the fucking thing please podman"
 # Install nerd font symbols out of the box \
 pacman -S --noconfirm \
     ttf-nerd-fonts-symbols \
+
+pacman -S --noconfirm \
+    flatpak
