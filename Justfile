@@ -38,3 +38,17 @@ generate-bootable-image $base_dir=base_dir $filesystem=filesystem:
 fix-selinux-container-permissions:
     #!/usr/bin/env bash
     sudo restorecon -RFv /var/lib/containers/storage
+
+# Run a shell in the container
+run-shell *ARGS:
+    sudo podman run \
+        --rm --privileged --pid=host \
+        -it \
+        -v /sys/fs/selinux:/sys/fs/selinux \
+        -v /etc/containers:/etc/containers:Z \
+        -v /var/lib/containers:/var/lib/containers:Z \
+        -v /dev:/dev \
+        -e RUST_LOG=debug \
+        -v "{{base_dir}}:/data" \
+        --security-opt label=type:unconfined_t \
+        "{{image_name}}:{{image_tag}}" bash
