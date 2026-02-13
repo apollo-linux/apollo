@@ -17,5 +17,6 @@ tee -a /etc/pacman.conf <<EOL
 Include = /etc/pacman.d/chaotic-mirrorlist
 EOL
 
-pacman -Sy --noconfirm
+pacman -Sy --noconfirm \
+    bootupd
 
