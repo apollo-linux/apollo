@@ -11,6 +11,9 @@ visudo -c -f /etc/sudoers.d/wheel-group
 systemctl enable NetworkManager.service
 systemctl enable systemd-resolved.service
 
+# Enable bluetooth
+systemctl enable bluetooth.service
+
 # Disable systemd's firstboot
 systemctl mask systemd-firstboot.service
 

@@ -27,7 +27,9 @@ pacman -S --noconfirm \
     power-profiles-daemon \
     gamemode \
     fprintd \
-    usbutils
+    usbutils \
+    bluez \
+    bluez-utils
 
 # Install fonts
 pacman -S --noconfirm \
