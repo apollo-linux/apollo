@@ -16,7 +16,7 @@ systemctl mask systemd-firstboot.service
 
 # Make sure that uupd timer is enabled
 systemctl enable uupd.timer
-systemctl disable bootc-fetch-and-apply.timer
+systemctl disable bootc-fetch-apply-updates.timer
 
 # Make sure that brew can be used with bash
 echo "source /etc/profile.d/brew.sh" | tee -a /etc/bash.bashrc
