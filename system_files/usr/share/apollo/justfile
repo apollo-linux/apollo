@@ -1,0 +1,9 @@
+just := just_executable()
+
+[private]
+default:
+    @{{ just }} --list
+
+# Update Apollo
+update:
+    sudo uupd

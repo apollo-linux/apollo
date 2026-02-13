@@ -19,6 +19,7 @@ pacman -S --noconfirm \
     micro \
     vim \
     htop \
+    just
 
 # Install some developer tools
 pacman -S --noconfirm \
