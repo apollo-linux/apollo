@@ -7,3 +7,16 @@ default:
 # Update Apollo
 update:
     sudo uupd
+
+# Choose whether automatic updates are enabled or disabled
+toggle-automatic-updates:
+    #!/bin/bash
+    CHOICE="$(gum choose --header="Enable automatic updates" "Enabled" "Disabled")"
+
+    if [ "$CHOICE" = "Enabled" ]; then 
+        echo "Enabling automatic updates..."
+        systemctl enable --now uupd.timer
+    elif [ "$CHOICE" = "Disabled" ]; then
+        echo "Disabling automatic updates..."
+        systemctl disable --now uupd.timer
+    fi

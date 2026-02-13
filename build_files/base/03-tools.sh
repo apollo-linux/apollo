@@ -19,7 +19,8 @@ pacman -S --noconfirm \
     micro \
     vim \
     htop \
-    just
+    just \
+    gum
 
 # Install some developer tools
 pacman -S --noconfirm \
@@ -28,7 +29,6 @@ pacman -S --noconfirm \
     android-tools \
     ydotool
 
-echo "do the fucking thing please podman"
 # Install nerd font symbols out of the box \
 pacman -S --noconfirm \
     ttf-nerd-fonts-symbols \
