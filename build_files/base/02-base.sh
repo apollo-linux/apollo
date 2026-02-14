@@ -21,7 +21,7 @@ pacman -S --noconfirm \
     vulkan-intel \
     dmidecode \
     amd-ucode \
-    intel-ucode
+    intel-ucode \
 
 # Install core operating system software
 pacman -S --noconfirm \
