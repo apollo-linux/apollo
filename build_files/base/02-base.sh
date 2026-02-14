@@ -45,7 +45,9 @@ pacman -S --noconfirm \
     noto-fonts \
     noto-fonts-emoji \
     noto-fonts-extra \
-    noto-fonts-cjk
+    noto-fonts-cjk \
+    ttf-dejavu \
+    ttf-liberation \
 
 # Install spice-vdagent
 pacman -S --noconfirm spice-vdagent
