@@ -18,7 +18,10 @@ systemctl enable rechunker-group-fix.service
 pacman -S --noconfirm \
     mesa \
     vulkan-radeon \
-    vulkan-intel
+    vulkan-intel \
+    dmidecode \
+    amd-ucode \
+    intel-ucode
 
 # Install core operating system software
 pacman -S --noconfirm \

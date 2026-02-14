@@ -35,3 +35,9 @@ pacman -S --noconfirm \
 
 pacman -S --noconfirm \
     flatpak
+
+# Install VPN tools
+pacman -S --noconfirm \
+    wireguard-tools \
+    networkmanager-openvpn \
+    networkmanager-openconnect
