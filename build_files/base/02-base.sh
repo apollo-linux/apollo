@@ -39,7 +39,8 @@ pacman -S --noconfirm \
     cups-pdf \
     unrar \
     unzip \
-    tar
+    tar \
+    man-db
 
 # Install fonts
 pacman -S --noconfirm \
