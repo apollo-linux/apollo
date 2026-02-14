@@ -34,7 +34,10 @@ pacman -S --noconfirm \
     bluez \
     bluez-utils \
     cups \
-    cups-pdf
+    cups-pdf \
+    unrar \
+    unzip \
+    tar
 
 # Install fonts
 pacman -S --noconfirm \
