@@ -1,11 +1,9 @@
-#!/bin/bash
+t#!/bin/bash
 
 set -ouex pipefail
 
 # Enable wheel group for sudo
-echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel-group
-chmod 0400 /etc/sudoers.d/wheel-group
-visudo -c -f /etc/sudoers.d/wheel-group
+echo "%wheel ALL=(ALL:ALL) ALL" > /etc/sudoers.d/wheel-group
 
 # Enable Network Manager & systemd-resolved
 systemctl enable NetworkManager.service
