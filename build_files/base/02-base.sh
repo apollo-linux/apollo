@@ -63,3 +63,6 @@ EOL
 
 pacman -Sy
 pacman -S --noconfirm bootc/uupd
+
+# Install ufw
+pacman -S --noconfirm ufw

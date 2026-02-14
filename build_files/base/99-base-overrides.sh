@@ -22,5 +22,8 @@ systemctl mask systemd-firstboot.service
 systemctl enable uupd.timer
 systemctl disable bootc-fetch-apply-updates.timer
 
+# Enable UFW by default
+systemctl enable ufw.service
+
 # Make sure that brew can be used with bash
 echo "source /etc/profile.d/brew.sh" | tee -a /etc/bash.bashrc
