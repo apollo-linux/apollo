@@ -16,7 +16,6 @@ pacman -S --noconfirm \
     hyfetch \
     fastfetch \
     nano \
-    micro \
     vim \
     htop \
     just \
