@@ -28,6 +28,7 @@ pacman -S --noconfirm \
     networkmanager \
     sudo \
     power-profiles-daemon \
+    powertop \
     gamemode \
     fprintd \
     usbutils \
