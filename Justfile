@@ -4,6 +4,7 @@ base_dir := env("BUILD_BASE_DIR", ".")
 filesystem := env("BUILD_FILESYSTEM", "ext4")
 build_args := env("BUILD_ARGUMENTS", "")
 just := just_executable()
+container_runtime := env("CONTAINER_RUNTIME", `command -v podman >/dev/null 2>&1 && echo podman || echo docker`)
 
 [private]
 default:
@@ -11,10 +12,10 @@ default:
     
 # Build the OS image from the containerfile
 build-containerfile $image_name=image_name $build_args=build_args:
-    sudo podman build --build-arg IMAGE_NAME="${image_name}" ${build_args} -t "${image_name}:latest" .
+    sudo {{container_runtime}} build --build-arg IMAGE_NAME="${image_name}" ${build_args} -t "${image_name}:latest" .
 
 bootc *ARGS:
-    sudo podman run \
+    sudo {{container_runtime}} run \
         --rm --privileged --pid=host \
         -it \
         -v /sys/fs/selinux:/sys/fs/selinux \
