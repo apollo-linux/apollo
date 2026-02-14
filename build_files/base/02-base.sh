@@ -22,6 +22,7 @@ pacman -S --noconfirm \
     dmidecode \
     amd-ucode \
     intel-ucode \
+    thermald
 
 # Install core operating system software
 pacman -S --noconfirm \
