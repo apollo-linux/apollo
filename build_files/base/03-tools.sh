@@ -19,7 +19,8 @@ pacman -S --noconfirm \
     vim \
     htop \
     just \
-    gum
+    gum \
+    fzf
 
 # Install some developer tools
 pacman -S --noconfirm \
