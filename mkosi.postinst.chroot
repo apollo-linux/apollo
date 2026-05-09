@@ -26,7 +26,7 @@ echo "source /etc/profile.d/brew.sh" | tee -a /etc/bash.bashrc
 
 # Branding variables
 IMAGE_PRETTY_NAME="Apollo"
-IMAGE_NAME="apollo"
+HOSTNAME="apollo"
 HOME_URL="https://github.com/apollo-linux/apollo"
 SUPPORT_URL="https://github.com/apollo-linux/apollo/issues"
 ID="apollo"
@@ -35,7 +35,7 @@ BUILD_ID="rolling"
 LOGO=apollo_logo
 
 # Set default hostname
-echo "${IMAGE_NAME}" > /etc/hostname
+echo "${HOSTNAME}" > /etc/hostname
 
 # Overwrite os-release
 cat > /usr/lib/os-release <<EOF
@@ -47,5 +47,5 @@ PRETTY_NAME="${IMAGE_PRETTY_NAME}"
 HOME_URL="${HOME_URL}"
 SUPPORT_URL="${SUPPORT_URL}"
 LOGO="${LOGO}"
-DEFAULT_HOSTNAME="${IMAGE_NAME}"
+DEFAULT_HOSTNAME="${HOSTNAME}"
 EOF
