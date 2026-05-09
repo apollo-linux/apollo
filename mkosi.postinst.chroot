@@ -24,17 +24,18 @@ chmod u+s /usr/bin/newuidmap /usr/bin/newgidmap
 
 echo "source /etc/profile.d/brew.sh" | tee -a /etc/bash.bashrc
 
-# Set default hostname
-echo "apollo-linux" > /etc/hostname
-
-# OS-Release variables
+# Branding variables
 IMAGE_PRETTY_NAME="Apollo"
+IMAGE_NAME="apollo"
 HOME_URL="https://github.com/apollo-linux/apollo"
 SUPPORT_URL="https://github.com/apollo-linux/apollo/issues"
 ID="apollo"
 ID_LIKE="arch"
 BUILD_ID="rolling"
 LOGO=apollo_logo
+
+# Set default hostname
+echo "${IMAGE_NAME}" > /etc/hostname
 
 # Overwrite os-release
 cat > /usr/lib/os-release <<EOF
@@ -46,5 +47,5 @@ PRETTY_NAME="${IMAGE_PRETTY_NAME}"
 HOME_URL="${HOME_URL}"
 SUPPORT_URL="${SUPPORT_URL}"
 LOGO="${LOGO}"
-DEFAULT_HOSTNAME="apollo-linux"
+DEFAULT_HOSTNAME="${IMAGE_NAME}"
 EOF
