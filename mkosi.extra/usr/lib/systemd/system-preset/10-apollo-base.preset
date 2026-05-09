@@ -1,5 +1,6 @@
 disable systemd-firstboot.service
 
+enable apparmor.service
 enable bluetooth.service
 enable cups.service
 enable firewalld.service
@@ -7,4 +8,3 @@ enable gdm.service
 enable gnome-initial-setup.service
 enable NetworkManager.service
 enable systemd-resolved.service
-enable apparmor.service
