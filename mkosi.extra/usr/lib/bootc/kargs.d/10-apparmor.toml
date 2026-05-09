@@ -1,0 +1,1 @@
+kargs = ["apparmor=1", "lsm=lockdown,yama,apparmor"]
