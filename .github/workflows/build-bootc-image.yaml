@@ -3,11 +3,11 @@ name: Reusable Build and Push
 on:
   workflow_call:
     inputs:
-      image_name: 
+      image-name: 
         description: "The output OCI name"
         default: "${{ github.event.repository.name }}"
         type: string
-      image_tag: 
+      image-tag: 
         description: "The version tag to be used for this image build"
         default: "latest"
         type: string
