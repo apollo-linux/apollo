@@ -109,7 +109,7 @@ jobs:
             args="$args --profile $profile"
           done
           
-          sudo mkosi -B --profile bootc "${args}" --debug -ff --tools-tree-distribution=arch
+          sudo mkosi -B --profile bootc ${args} --debug -ff --tools-tree-distribution=arch
 
       - name: Load the image into the local storage
         run:
