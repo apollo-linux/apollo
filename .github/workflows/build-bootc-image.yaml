@@ -12,7 +12,7 @@ on:
         default: "latest"
         type: string
       image-profiles:
-        description: Additional profiles to use with mkosi (alongside bootc)
+        description: Additional profiles to use with mkosi (alongside bootc) - space seperated
         default: ""
         type: string 
 
