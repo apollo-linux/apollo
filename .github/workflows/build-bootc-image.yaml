@@ -108,7 +108,7 @@ jobs:
         run: |
           just load
           for tag in $DOCKER_METADATA_OUTPUT_TAGS; do
-              podman tag apollo:latest apollo:$tag;
+              podman tag apollo:latest $IMAGE_NAME:$tag;
           done
 
       - name: Login to GitHub Container Registry
