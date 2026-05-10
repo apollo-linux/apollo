@@ -11,12 +11,17 @@ on:
         description: "The version tag to be used for this image build"
         default: "latest"
         type: string
+      image-profiles:
+        description: Additional profiles to use with mkosi (alongside bootc)
+        default: ""
+        type: string 
 
 env:
   IMAGE_DESC: "Experimental arch-bootc POC image"
   IMAGE_KEYWORDS: "bootc,archlinux,arch"
   IMAGE_LOGO_URL: "https://avatars.githubusercontent.com/u/230667510?s=400&u=cb912a5db49aee164a609a0fb4967d2d8170feb9&v=4"
   IMAGE_NAME: "${{ inputs.image-name }}"
+  IMAGE_PROFILES: "${{ inputs.image-profiles }}"
   IMAGE_REGISTRY: "ghcr.io/${{ github.repository_owner }}"
   DEFAULT_TAG: "${{ inputs.image-tag }}"
 
@@ -97,8 +102,14 @@ jobs:
 
       - name: Build image with mkosi
         id: build 
-        run: 
-          sudo mkosi -B --profile bootc --debug -ff --tools-tree-distribution=arch
+        run: |
+          args="" 
+
+          for profile in $IMAGE_PROFILES; do
+            args="$args --profile $profile"
+          done
+          
+          sudo mkosi -B --profile bootc "{$args}" --debug -ff --tools-tree-distribution=arch
 
       - name: Load the image into the local storage
         run:
