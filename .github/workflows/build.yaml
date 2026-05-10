@@ -21,7 +21,7 @@ concurrency:
 jobs:
   build-apollo:
     name: Build 'apollo'
-    uses: ./.github/workflows/reusable-build.yml
+    uses: ./.github/workflows/build-bootc-image.yaml
     with:
       image-name: "apollo"
       image-tag: "latest"
