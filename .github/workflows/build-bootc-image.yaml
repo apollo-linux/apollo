@@ -105,7 +105,7 @@ jobs:
         uses: extractions/setup-just@v4
 
       - name: Install mkosi
-        uses: systemd/mkosi@c4c3d793d0f6f0a2f26895de5ed9382396f36bb5 # pin v26~18
+        uses: systemd/mkosi@d2b798d00c90eb87846725f47b7b19bea9efe94e # pin v26~18
 
       - name: Build image with mkosi
         id: build 
