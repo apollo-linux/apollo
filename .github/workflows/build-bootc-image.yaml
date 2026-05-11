@@ -65,7 +65,7 @@ jobs:
           echo "date=$(date -u +%Y\-%m\-%d\T%H\:%M\:%S\Z)" >> $GITHUB_OUTPUT
 
       - name: Image Metadata
-        uses: docker/metadata-action@c1e51972afc2121e065aed6d45c65596fe445f3f # v5
+        uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v5
         id: metadata
         with:
           tags: |
