@@ -52,4 +52,5 @@ EOF
 
 # Remove packages that are only used for building
 pacman -Rs --noconfirm \
-    crane
+    crane \
+    jq
