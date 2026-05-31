@@ -62,7 +62,6 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Free disk space
-        if: matrix.platform != 'arm64'
         uses: hastd/free-disk-space@68572aeaadb7f76bd408246328e95926323402b5 # v0.1.2
         with:
           exclude: |
