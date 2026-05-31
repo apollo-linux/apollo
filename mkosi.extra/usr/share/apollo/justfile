@@ -21,7 +21,7 @@ toggle-automatic-updates:
         systemctl disable --now uupd.timer
     fi
 
-# Toggles OpenTabletDriver (disables built-in kernel tablet drivers)
+# Toggles OpenTabletDriver configs (You will only be able to configure your art tablet in OpenTabletDriver, not in your desktop's settings)
 toggle-opentabletdriver:
     #!/bin/bash
     if stat /etc/.otb-toggled &>/dev/null; then
@@ -31,6 +31,12 @@ toggle-opentabletdriver:
         sudo rm /etc/.otb-toggled
         echo "Disabled OpenTabletDriver."
     else
+        if ! flatpak info net.opentabletdriver.OpenTabletDriver &>/dev/null; then
+            if gum confirm "Would you like to install OpenTabletDriver from Flathub?" ; then
+                flatpak install net.opentabletdriver.OpenTabletDriver
+            fi
+        fi
+
         sudo ln -s /usr/lib/opentabletdriver-config/udev/rules.d/70-opentabletdriver.rules /etc/udev/rules.d/70-opentabletdriver.rules
         sudo ln -s /usr/lib/opentabletdriver-config/modprobe.d/99-opentabletdriver.conf /etc/modprobe.d/99-opentabletdriver.conf
         sudo ln -s /usr/lib/opentabletdriver-config/modules-load.d/opentabletdriver.conf /etc/modules-load.d/opentabletdriver.conf
