@@ -13,6 +13,13 @@ default:
     @{{ just }} --list
 
 alias build := build-bootc
+alias i := interactive-build
+
+[script]
+interactive-build:
+    selected=$(ls mkosi.profiles | fzf -m --header="Press tab to select profiles to include in build")
+    profiles=$(echo "$selected" | tr '\n' ' ' | sed 's/ $//')
+    {{ just }} build-bootc "$profiles"
 
 build-bootc $profiles=profiles:
     #!/bin/bash

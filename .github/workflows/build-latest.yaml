@@ -26,7 +26,25 @@ jobs:
     with:
       image-name: "apollo"
       image-tag: "latest"
-      profiles: ""
+      profiles: "kernel-rolling"
+    secrets: inherit
+
+  apollo-lts:
+    name: apollo-lts
+    uses: ./.github/workflows/build-bootc-image.yaml
+    with:
+      image-name: "apollo-lts"
+      image-tag: "latest"
+      profiles: "kernel-lts"
+    secrets: inherit
+
+  apollo-nvidia-lts:
+    name: apollo-nvidia-lts
+    uses: ./.github/workflows/build-bootc-image.yaml
+    with:
+      image-name: "apollo-nvidia-lts"
+      image-tag: "latest"
+      profiles: "nvidia kernel-lts"
     secrets: inherit
 
   apollo-nvidia:
