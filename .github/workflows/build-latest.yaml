@@ -53,5 +53,5 @@ jobs:
     with:
       image-name: "apollo-nvidia"
       image-tag: "latest"
-      profiles: "nvidia"
+      profiles: "nvidia kernel-rolling"
     secrets: inherit
