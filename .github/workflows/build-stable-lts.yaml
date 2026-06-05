@@ -1,5 +1,5 @@
 ---
-name: Build stable images
+name: Build LTS images
 on:
   pull_request:
     branches:
@@ -20,8 +20,8 @@ jobs:
     uses: ./.github/workflows/build-bootc-image.yaml
     with:
       image-name: "apollo"
-      image-tag: "stable"
-      profiles: "kernel-rolling"
+      image-tag: "stable-lts"
+      profiles: "kernel-lts"
     secrets: inherit
 
   apollo-nvidia:
@@ -29,6 +29,6 @@ jobs:
     uses: ./.github/workflows/build-bootc-image.yaml
     with:
       image-name: "apollo-nvidia"
-      image-tag: "stable"
-      profiles: "kernel-rolling nvidia"
+      image-tag: "stable-lts"
+      profiles: "kernel-lts nvidia"
     secrets: inherit
