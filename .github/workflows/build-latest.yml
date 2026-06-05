@@ -1,0 +1,39 @@
+---
+name: Build latest images
+on:
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "05 10 * * *" # 10:05am UTC everyday
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - "**/README.md"
+      - "**/CONTRIBUTING.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+jobs:
+  apollo:
+    name: apollo
+    uses: ./.github/workflows/build-bootc-image.yaml
+    with:
+      image-name: "apollo"
+      image-tag: "latest"
+      profiles: "kernel-rolling"
+    secrets: inherit
+
+  apollo-nvidia:
+    name: apollo-nvidia
+    uses: ./.github/workflows/build-bootc-image.yaml
+    with:
+      image-name: "apollo-nvidia"
+      image-tag: "latest"
+      profiles: "kernel-rolling nvidia"
+    secrets: inherit
