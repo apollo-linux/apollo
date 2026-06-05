@@ -1,0 +1,34 @@
+---
+name: Build stable images
+on:
+  pull_request:
+    branches:
+      - main
+  schedule:
+    # TODO: long-term, this should be weekly builds. Ideally closer to either beta or GA.
+    - cron: "05 10 * * *" # 10:05am UTC everyday
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+  id-token: write
+
+jobs:
+  apollo:
+    name: apollo
+    uses: ./.github/workflows/build-bootc-image.yaml
+    with:
+      image-name: "apollo"
+      image-tag: "stable"
+      profiles: ""
+    secrets: inherit
+
+  apollo-nvidia:
+    name: apollo-nvidia
+    uses: ./.github/workflows/build-bootc-image.yaml
+    with:
+      image-name: "apollo-nvidia"
+      image-tag: "stable"
+      profiles: "nvidia"
+    secrets: inherit

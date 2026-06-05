@@ -1,5 +1,5 @@
 ---
-name: Build container image
+name: Build latest images
 on:
   pull_request:
     branches:
