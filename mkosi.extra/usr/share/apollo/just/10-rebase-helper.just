@@ -1,3 +1,5 @@
+alias rebase := rebase-helper
+
 # Rebase between release channels and images
 rebase-helper:
     #!/usr/bin/env bash
@@ -15,7 +17,7 @@ rebase-helper:
     printf "You are currently using: $IMAGE:$CHANNEL \n\n"
 
     CHOICE="$(gum choose \
-        --header="Rebase helper" \
+        --header="Choose a command" \
         "Change release channel" \
         "Change image" \
         )"
@@ -37,4 +39,22 @@ rebase-helper:
             )"
         
         sudo bootc switch "ghcr.io/apollo-linux/$TARGET_IMAGE"
+
+    elif [ "$CHOICE" = "Change image" ]; then
+        printf "You should use the appropriate image for your GPU\n"
+        printf "Use apollo-nvidia for GTX 16xx/RTX 20xx or newer Nvidia cards, use apollo for anything else"
+
+        TARGET_IMAGE="$(gum choose \
+            --header="Choose a target image" \
+            "apollo" \
+            "apollo-nvidia" \
+            )"
+
+        TARGET_FULL_IMAGE="$TARGET_IMAGE:$CHANNEL"
+
+        CONFIRM="$(gum confirm \
+            "Rebase to $TARGET_IMAGE:$CHANNEL?"
+            )"
+        
+        sudo bootc switch "ghcr.io/apollo-linux/$TARGET_FULL_IMAGE"
     fi
