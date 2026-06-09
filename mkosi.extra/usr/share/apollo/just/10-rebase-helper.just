@@ -16,7 +16,6 @@ rebase-helper:
 
     CHOICE="$(gum choose \
         --header="Rebase helper" \
-        "Get current image info" \
         "Change release channel" \
         "Change image" \
         )"
