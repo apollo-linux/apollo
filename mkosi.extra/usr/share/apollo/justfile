@@ -1,5 +1,7 @@
 just := just_executable()
 
+import 'just/10-rebase-helper.just'
+
 [private]
 default:
     @{{ just }} --list
