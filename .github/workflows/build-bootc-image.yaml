@@ -60,6 +60,8 @@ jobs:
     strategy:
       fail-fast: false
     runs-on: ubuntu-24.04
+    outputs:
+      image_version: ${{ steps.getversion.outputs.image_version }}
     steps:
       - name: Free disk space
         uses: hastd/free-disk-space@68572aeaadb7f76bd408246328e95926323402b5 # v0.1.2
@@ -97,6 +99,10 @@ jobs:
       - name: Install mkosi
         uses: systemd/mkosi@c4c3d793d0f6f0a2f26895de5ed9382396f36bb5
 
+      - name: Set mkosi.version
+        # We need to do this because mkosi.version is not persistent between builds on CI
+        run: skopeo list-tags docker://${IMAGE_REGISTRY}/${IMAGE_NAME} | jq --arg date "$(date -u +%Y%m%d)" -r '.Tags[] | select(startswith($date+"."))' | sort -n | tail -1 > mkosi.version
+
       - name: Render configuration (for debugging)
         run: mkosi cat-config --debug
 
@@ -119,6 +125,12 @@ jobs:
           fi
           
           sudo mkosi -B --profile bootc ${args} --debug -ff --tools-tree-distribution=arch ${RELEASE_ARGUMENTS}
+
+      - name: Get Version
+        id: getversion
+        run: |
+          set -e
+          echo "image_version=$(cat mkosi.version)" >> "$GITHUB_OUTPUT"
 
       - name: Load image
         id: load
@@ -247,9 +259,9 @@ jobs:
           tags: |
             type=raw,value=${{ env.DEFAULT_TAG }}
             type=raw,value=${{ env.DEFAULT_TAG }}-${{ github.sha }}
-            type=raw,value=${{ env.DEFAULT_TAG }}.{{date 'YYYYMMDD'}}
-            type=raw,value=${{ env.DEFAULT_TAG }}.{{date 'YYYYMMDD'}}-${{ github.sha }}
-            type=raw,value={{ date 'YYYYMMDD'}},enable=${{ env.DEFAULT_TAG == 'latest' }}
+            type=raw,value=${{ env.DEFAULT_TAG }}.${{ needs.build_push.outputs.image_version }}
+            type=raw,value=${{ env.DEFAULT_TAG }}.${{ needs.build_push.outputs.image_version }}-${{ github.sha }}
+            type=raw,value=${{ needs.build_push.outputs.image_version }},enable=${{ env.DEFAULT_TAG == 'latest' }}
             type=ref,event=pr
             type=sha,enable=${{ github.event_name == 'pull_request' }}
           labels: |
@@ -268,7 +280,7 @@ jobs:
             org.opencontainers.image.title=${{ env.IMAGE_NAME }}
             org.opencontainers.image.url=https://github.com/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}/tree/${{ github.sha }}
             org.opencontainers.image.vendor=${{ github.repository_owner }}
-            org.opencontainers.image.version=${{ env.DEFAULT_TAG }}.{{date 'YYYYMMDD'}}
+            org.opencontainers.image.version=${{ env.DEFAULT_TAG }}.${{ needs.build_push.outputs.image_version }}
 
       - name: Login to GitHub Container Registry
         if: inputs.publish
