@@ -2,7 +2,7 @@
 Thank you for your interest in contributing to Apollo. To help your contribution be accepted more easily, please read through the following first. 
 
 ## Building
-Apollo is made with mkosi and bootc. You'll need mkosi, just, and preferably podman (docker should work too). A hypervisor is also recommended for testing images. 
+Apollo is made with mkosi and bootc. You'll need mkosi, python, just, and preferably podman (docker should work too). A hypervisor is also recommended for testing images. 
 
 You can build a bootc-compatible oci archive with mkosi (an Arch-based environment is currently recommended) using the following command:
 ```bash
