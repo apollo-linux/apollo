@@ -9,4 +9,3 @@ enable gdm.service
 enable gnome-initial-setup.service
 enable NetworkManager.service
 enable systemd-resolved.service
-enable brew-proxy-setup.service
