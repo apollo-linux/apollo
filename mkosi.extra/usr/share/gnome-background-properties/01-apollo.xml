@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+  <wallpaper deleted="false">
+    <name>01 Apollo</name>
+    <filename>/usr/share/backgrounds/apollo/apollo-light.png</filename>
+    <filename-dark>/usr/share/backgrounds/apollo/apollo-dark.png</filename-dark>
+    <options>zoom</options>
+    <shade_type>solid</shade_type>
+    <pcolor>#8F05E0</pcolor>
+    <scolor>#361947</scolor>
+  </wallpaper>
+</wallpapers>
+
