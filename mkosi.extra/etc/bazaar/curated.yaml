@@ -1,60 +1,31 @@
-css: |
-  .welcome {
-    border-radius: 15px;
-  }
-
-  .welcome-light {
-      background: linear-gradient(180deg, #C994E8, #AE5FDC);
-  }
-
-  .welcome-dark {
-      background: linear-gradient(180deg, #7906BB, #480E6A);
-  }
-
-  .section {
-    margin:15px;
-  }
-
-
 rows:
-  - sections:
-      - expand-horizontally: true
-
-        category: 
-          title:
-            en: "Welcome to Apollo!"
-          subtitle:
-            en: "We've picked out some apps to help get you started"
-
-          banner-text-label-xalign: 0.5
-          banner-text-halign: center
-
-          banner-height: 300
-
-          appids:
-            - io.github.alainm23.planify
-            - org.mozilla.thunderbird
-            - org.libreoffice.LibreOffice
-            - org.gnome.gitlab.somas.Apostrophe
-            - re.sonny.Eloquent
-            - be.alexandervanhee.gradia
-            - org.gnome.World.PikaBackup
-            - io.github.nozwock.Packet
-            - io.gitlab.adhami3310.Impression
-            - page.tesk.Refine
-            - com.mattjakeman.ExtensionManager
-            - io.github.flattool.Warehouse
-            - io.github.flattool.Ignition
-            - com.github.tchx84.Flatseal
-
-          enable-bulk-install: true
-
-        classes:
-          - welcome
-          - section
-
-        light-classes:
-          - welcome-light
-        dark-classes:
-          - welcome-dark
-
+  - banner:
+      height: 250
+      image:
+        light-uri: file:///run/host/etc/bazaar/images/apollo-light.png
+        dark-uri: file:///run/host/etc/bazaar/images/apollo-dark.png 
+        fit: cover
+        can-shrink: true
+        alt: "The Apollo wallpaper: a rocket flying in the sky"
+  - section:
+      title:
+        en: "Welcome to Apollo!"
+      subtitle:
+        string: |
+          We've picked out some apps to help get you started
+      appids:
+        list:
+          - io.github.alainm23.planify
+          - org.mozilla.thunderbird
+          - org.libreoffice.LibreOffice
+          - org.gnome.gitlab.somas.Apostrophe
+          - re.sonny.Eloquent
+          - be.alexandervanhee.gradia
+          - org.gnome.World.PikaBackup
+          - io.github.nozwock.Packet
+          - io.gitlab.adhami3310.Impression
+          - page.tesk.Refine
+          - com.mattjakeman.ExtensionManager
+          - io.github.flattool.Warehouse
+          - io.github.flattool.Ignition
+          - com.github.tchx84.Flatseal
