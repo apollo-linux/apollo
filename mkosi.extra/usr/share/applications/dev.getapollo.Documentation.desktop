@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Apollo Documentation
+Comment=Open the Apollo Documentation in a Web Browser
+Exec=xdg-open https://docs.getapollo.dev
+Icon=dev.getapollo.Documentation
+Categories=Documentation;Utility;
