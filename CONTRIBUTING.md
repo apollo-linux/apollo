@@ -6,7 +6,7 @@ Apollo is made with mkosi and bootc. You'll need mkosi, python, just, and prefer
 
 You can build a bootc-compatible oci archive with mkosi (an Arch-based environment is currently recommended) using the following command:
 ```bash
-just build-bootc
+just build-bootc $kernel # either kernel-rolling for the latest kernel, or #kernel-lts
 ```
 
 To load the built oci archive into your *rootless* container storage, you can run the following:
