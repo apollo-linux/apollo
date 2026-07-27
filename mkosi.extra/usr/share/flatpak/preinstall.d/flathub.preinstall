@@ -1,4 +1,4 @@
-[Flatpak Preinstall org.gnome.Epiphany]
+[Flatpak Preinstall org.mozilla.firefox]
 Branch=stable
 IsRuntime=false
 
@@ -14,10 +14,6 @@ IsRuntime=false
 Branch=stable
 IsRuntime=false
 
-[Flatpak Preinstall com.mattjakeman.ExtensionManager]
-Branch=stable
-IsRuntime=false
-
 [Flatpak Preinstall org.gnome.FileRoller]
 Branch=stable
 IsRuntime=false
@@ -27,10 +23,6 @@ Branch=stable
 IsRuntime=false
 
 [Flatpak Preinstall org.gnome.Papers]
-Branch=stable
-IsRuntime=false
-
-[Flatpak Preinstall page.tesk.Refine]
 Branch=stable
 IsRuntime=false
 
