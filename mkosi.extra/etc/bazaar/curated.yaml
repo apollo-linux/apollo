@@ -19,7 +19,6 @@ rows:
           - org.mozilla.thunderbird
           - org.libreoffice.LibreOffice
           - org.gnome.gitlab.somas.Apostrophe
-          - re.sonny.Eloquent
           - be.alexandervanhee.gradia
           - org.gnome.World.PikaBackup
           - io.github.nozwock.Packet
@@ -29,3 +28,4 @@ rows:
           - io.github.flattool.Warehouse
           - io.github.flattool.Ignition
           - com.github.tchx84.Flatseal
+      enable-bulk-install: true
