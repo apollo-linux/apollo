@@ -4,6 +4,7 @@ enable apparmor.service
 enable bluetooth.service
 enable cups.service
 enable firewalld.service
+enable flatpak-preinstall.service
 enable fwupd.service
 enable gdm.service
 enable gnome-initial-setup.service
