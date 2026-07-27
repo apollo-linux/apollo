@@ -1,0 +1,4 @@
+curated-config-paths:
+  - /run/host/etc/bazaar/curated.yaml
+yaml-blocklist-paths:
+  - /run/host/etc/bazaar/blocklist.yaml
