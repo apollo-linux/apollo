@@ -59,7 +59,7 @@ jobs:
     timeout-minutes: 60
     strategy:
       fail-fast: false
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     outputs:
       image_version: ${{ steps.getversion.outputs.image_version }}
     steps:
@@ -75,26 +75,8 @@ jobs:
         with:
           submodules: true
 
-      # We need newer podman due to old podman not supporting lots of flags
-      - name: Update podman and install just
-        shell: bash
-        run: |
-          set -eux
-          # Require the runner is ubuntu-24.04
-          IDV=$(. /usr/lib/os-release && echo ${ID}-${VERSION_ID})
-          test "${IDV}" = "ubuntu-24.04"
-          # resolute is the next release. The azure.archive.ubuntu.com mirror only carries amd64.
-          # Other architectures like arm64 use ports.ubuntu.com/ubuntu-ports.
-          if [ "$(dpkg --print-architecture)" = "amd64" ]; then
-            mirror="http://azure.archive.ubuntu.com/ubuntu"
-          else
-            mirror="http://ports.ubuntu.com/ubuntu-ports"
-          fi
-          echo "deb ${mirror} resolute universe main" | sudo tee /etc/apt/sources.list.d/resolute.list
-          /bin/time -f '%E %C' sudo apt update
-          # skopeo is currently older in resolute for some reason hence --allow-downgrades
-          /bin/time -f '%E %C' sudo apt install -y --allow-downgrades crun/resolute buildah/resolute podman/resolute skopeo/resolute just/resolute
-          podman --version
+      - name: Install Just
+        uses: extractions/setup-just@v4
 
       - name: Install mkosi
         uses: systemd/mkosi@c4c3d793d0f6f0a2f26895de5ed9382396f36bb5
