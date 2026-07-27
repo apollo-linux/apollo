@@ -5,6 +5,7 @@ Wants=network-online.target
 ConditionPathExists=/usr/bin/flatpak
 ConditionPathExists=!/var/lib/apollo/preinstall-finished
 Documentation=man:flatpak-preinstall(1)
+StartLimitIntervalSec=600
 
 [Service]
 Type=oneshot
@@ -14,6 +15,8 @@ ExecStart=touch /var/lib/apollo/preinstall-finished
 RemainAfterExit=true
 Restart=on-failure
 RestartSec=30
+
+StartLimitBurst=3
 
 [Install]
 WantedBy=multi-user.target
