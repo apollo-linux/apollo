@@ -1,0 +1,6 @@
+blocklists:
+  - priority: 0
+    block:
+      - app.devsuite.Ptyxis
+      - org.gnome.Extensions
+      - io.github.kolunmi.Bazaar

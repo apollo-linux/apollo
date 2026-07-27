@@ -1,4 +1,4 @@
 curated-config-paths:
-  - /etc/bazaar/curated.yaml
-  # Flatpak path with host-etc permission
   - /run/host/etc/bazaar/curated.yaml
+yaml-blocklist-paths:
+  - /run/host/etc/bazaar/blocklist.yaml
