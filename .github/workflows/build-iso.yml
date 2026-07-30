@@ -8,9 +8,10 @@ jobs:
     name: Build and push ISO file
     runs-on: ubuntu-26.04
     strategy:
-    matrix:
-      image: ["apollo", "apollo-nvidia"]
-      tag: ["latest"]
+      fail-fast: true
+      matrix:
+        image: ["apollo", "apollo-nvidia"]
+        tag: ["latest"]
 
     permissions:
       contents: read
