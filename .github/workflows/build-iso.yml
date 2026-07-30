@@ -1,5 +1,5 @@
 ---
-name: Build Titanoboa ISOs
+name: Build Apollo ISOs
 on:
   workflow_dispatch:
 
