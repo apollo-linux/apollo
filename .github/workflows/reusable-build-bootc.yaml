@@ -82,8 +82,11 @@ jobs:
         uses: systemd/mkosi@c4c3d793d0f6f0a2f26895de5ed9382396f36bb5
 
       - name: Set mkosi.version
-        # We need to do this because mkosi.version is not persistent between builds on CI
-        run: skopeo list-tags docker://${IMAGE_REGISTRY}/${IMAGE_NAME} | jq --arg date "$(date -u +%Y%m%d)" -r '.Tags[] | select(startswith($date+"."))' | sort -n | tail -1 > mkosi.version
+        run: |
+          # We need to do this because mkosi.version is not persistent between builds on CI.
+          # Grab what would be the default image version right now and then use it to see if any other images with this major version have been built yet (we omit the .0 for the search)
+          IMAGE_VERSION=$(./mkosi.bump)
+          skopeo list-tags docker://${IMAGE_REGISTRY}/${IMAGE_NAME} | jq --arg update_date "${IMAGE_VERSION:0:8}" -r '.Tags[] | select(startswith($update_date+"."))' | sort -n | tail -1 > mkosi.version
 
       - name: Render configuration (for debugging)
         run: mkosi cat-config --debug

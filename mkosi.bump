@@ -1,9 +1,12 @@
 #!/usr/bin/env python
-from datetime import datetime, timezone
+from datetime import datetime
+import urllib.request
 
 DEFAULT_INDEX=0
 
-cur_date = datetime.now(timezone.utc).strftime("%Y%m%d")
+# We want the day of the most recent Arch Linux Archive update
+arch_linux_archive = urllib.request.urlopen("https://archive.archlinux.org/repos/last/lastupdate", timeout=30)
+latest_date = datetime.strptime(arch_linux_archive.getheader('last-modified'), '%a, %d %b %Y %H:%M:%S %Z').strftime('%Y%m%d')
 old_date = None
 old_index = 0
 
@@ -18,9 +21,8 @@ except FileNotFoundError, ValueError:
     pass
 
 # If the date timestamp (YYYYMMDD) of the last built version is the same as the one we want to build, increment the counter index. If not, reset to 0
-if old_date != cur_date:
-    print(f"{cur_date}.{DEFAULT_INDEX}")
+if old_date != latest_date:
+    print(f"{latest_date}.{DEFAULT_INDEX}")
 else:
     new_index = old_index + 1
-    print(f"{cur_date}.{new_index}")
-
+    print(f"{latest_date}.{new_index}")

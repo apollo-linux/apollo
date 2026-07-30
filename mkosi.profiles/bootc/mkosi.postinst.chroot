@@ -52,6 +52,18 @@ tee -a /etc/pacman.conf <<EOL
 Include = /etc/pacman.d/mirrorlist
 EOL
 
+# Convert the image version into an Arch Linux Archive reference
+UPDATE_DATE="${IMAGE_VERSION:0:4}/${IMAGE_VERSION:4:2}/${IMAGE_VERSION:6:2}"
+
+# Set our mirrorlist to use the Arch Linux Archive instead
+# We sym link this from /etc/pacman.d/mirrorlist using a tmpfiles configuration
+USR_PACMAN_CONF=/usr/share/pacman/pacman.d
+mkdir -p $USR_PACMAN_CONF
+
+cat > $USR_PACMAN_CONF/mirrorlist <<EOF
+Server = https://archive.archlinux.org/repos/${UPDATE_DATE}/\$repo/os/\$arch
+EOF
+
 # Disable the pacman sandbox
 # OCI runtimes (such as containerd) do not have proper support for landlock, 
 # which means pacman breaks when this image is running in a container.
