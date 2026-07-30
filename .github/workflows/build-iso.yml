@@ -5,7 +5,6 @@ on:
     - cron: '00 13 1 * *' # 13:00 (1pm) on the 1st of the month
   workflow_dispatch:
 
-
 jobs:
   build:
     name: Build and push ISO file
@@ -44,7 +43,7 @@ jobs:
         id: rename
         run: |
           mkdir -p output
-          sudo mv ${{ steps.build.outputs.iso-dest }} output/${{ matrix.image }}-${{ matrix.tag }}.iso
+          sudo mv ${{ steps.build.outputs.iso-path }} output/${{ matrix.image }}-${{ matrix.tag }}.iso
           (cd output && sha256sum ${{ matrix.image }}-${{ matrix.tag }}.iso | tee ${{ matrix.image }}-${{ matrix.tag }}.iso-CHECKSUM)
           
       - name: Upload ISO to Job Artifacts
