@@ -1,0 +1,47 @@
+---
+name: Build Titanoboa ISOs
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build and push ISO file
+    runs-on: ubuntu-26.04
+    strategy:
+    matrix:
+      image: ["apollo", "apollo-nvidia"]
+      tag: ["latest"]
+
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps: 
+      - name: Checkout the repository
+        id: checkout
+        uses: actions/checkout@v6
+
+      - name: Maximize build space
+        uses: ublue-os/remove-unwanted-software@695eb75bc387dbcd9685a8e72d23439d8686cba6 # v10
+      
+      - name: Build ISO
+        id: build
+        uses: apollo-linux/apollo-iso-builder@main
+        with:
+          container-image: ghcr.io/apollo-linux/${{ matrix.image }}:${{ matrix.tag }}
+          iso-path: ${{ matrix.image }}-${{ matrix.tag }}.iso
+          
+      - name: Rename and Checksum ISO
+        id: rename
+        run: |
+          mkdir -p output
+          mv ${{ steps.build.outputs.iso-dest }} output/${{ matrix.image }}-${{ matrix.tag }}.iso
+          (cd output && sha256sum ${{ matrix.image }}-${{ matrix.tag }}.iso | tee ${{ matrix.image }}-${{ matrix.tag }}.iso-CHECKSUM)
+          
+      - name: Upload ISO to Job Artifacts
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ${{ matrix.image }}-${{ matrix.tag }}.iso
+          if-no-files-found: error
+          path: output/
