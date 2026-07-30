@@ -1,7 +1,10 @@
 ---
 name: Build Apollo ISOs
 on:
+  schedule:
+    - cron: '00 13 1 * *' # 13:00 (1pm) on the 1st of the month
   workflow_dispatch:
+
 
 jobs:
   build:
