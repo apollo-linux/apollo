@@ -1,0 +1,20 @@
+#!/bin/bash
+
+set -uexo pipefail
+
+desktop_files=(
+    /usr/share/applications/avahi-discover.desktop
+    /usr/share/applications/bssh.desktop
+    /usr/share/applications/bvnc.desktop
+    /usr/share/applications/hplip.desktop
+    /usr/share/applications/hp-uiscan.desktop
+    /usr/share/applications/lstopo.desktop
+    /usr/share/applications/stoken-gui.desktop
+    /usr/share/applications/stoken-gui-small.desktop
+    /usr/share/applications/qv4l2.desktop
+    /usr/share/applications/qvidcap.desktop
+)
+
+for f in "${desktop_files[@]}"; do
+    echo "Hidden=true" | tee -a $f
+done
