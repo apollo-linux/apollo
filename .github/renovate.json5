@@ -12,6 +12,10 @@
       "matchUpdateTypes": ["pin", "pinDigest"]
     },
     {
+      "matchPackageNames": ["apollo-linux/apollo-iso-builder"],
+      "enabled": false
+    },
+    {
       "enabled": false,
       "matchUpdateTypes": ["digest", "pinDigest", "pin"],
       "matchDepTypes": ["container"],
