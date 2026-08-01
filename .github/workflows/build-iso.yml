@@ -34,7 +34,7 @@ jobs:
 
       - name: Build ISO
         id: build
-        uses: apollo-linux/apollo-iso-builder@main
+        uses: apollo-linux/apollo-iso-builder@2d4b597f136839f8ee29e00873054c188a324d1f # main
         with:
           container-image: ghcr.io/apollo-linux/${{ matrix.image }}:${{ matrix.tag }}
           iso-path: ${{ matrix.image }}-${{ matrix.tag }}.iso
