@@ -23,7 +23,7 @@ jobs:
     steps: 
       - name: Checkout the repository
         id: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
 
       - name: Free disk space
         uses: hastd/free-disk-space@68572aeaadb7f76bd408246328e95926323402b5 # v0.1.2
