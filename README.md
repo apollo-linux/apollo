@@ -10,7 +10,7 @@ Apollo is an up to date, easy to use and privacy respecting operating system for
 Apollo is still experimental and should be considered to be in a **pre-alpha** state. Use with caution; stability is not guaranteed at this time and basic things *will* be missing. You should be fully prepared to report bugs and in general, help is appreciated.
 
 ## Installing
-WIP, ISOs are being worked on.
+Download an ISO from the most recent [workflow run](https://github.com/apollo-linux/apollo/actions/workflows/build-iso.yml) (requires a GitHub account) and follow [this gist](https://gist.github.com/fizzyizzy05/c591efd7c97447ee4f907dfab417d2a3)
 
 ## Contributing
 Please read our [CONTRIBUTING.md file](CONTRIBUTING.md) for information around contributing to Apollo.
