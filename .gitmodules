@@ -9,4 +9,4 @@
 	url = https://github.com/Lumaeris/homebrew-arch
 [submodule "subprojects/apollo-packages"]
 	path = subprojects/apollo-packages
-	url = https://github.com/apollo-linux/packages.git
+	url = https://github.com/apollo-linux/packages
