@@ -1,9 +1,0 @@
-#!/bin/bash
-
-set -uexo pipefail
-
-# Install xdg-terminal-exec
-cd /tmp
-git clone "https://gitlab.freedesktop.org/Vladimir-csp/xdg-terminal-exec.git" && cd xdg-terminal-exec
-
-make prefix="/usr" install
