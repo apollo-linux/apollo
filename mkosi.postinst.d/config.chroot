@@ -22,9 +22,6 @@ setcap -r /usr/bin/newuidmap
 setcap -r /usr/bin/newgidmap
 chmod u+s /usr/bin/newuidmap /usr/bin/newgidmap
 
-# Set ptyxis as the default terminal
-echo "org.gnome.Ptyxis.desktop:new-window" | tee -a /usr/share/xdg-terminal-exec/xdg-terminals.list
-
 # Remove packages that are only used for building
 pacman -Rs --noconfirm \
     crane \
