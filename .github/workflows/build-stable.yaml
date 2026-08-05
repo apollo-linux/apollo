@@ -1,5 +1,5 @@
 ---
-name: Build stable images
+name: Build stable & stable-lts images
 on:
   schedule:
     # TODO: long-term, this should be weekly builds. Ideally closer to either beta or GA.
@@ -13,7 +13,7 @@ permissions:
 
 jobs:
   apollo:
-    name: apollo
+    name: apollo:stable
     uses: ./.github/workflows/reusable-build-bootc.yaml
     with:
       image-name: "apollo"
@@ -22,10 +22,28 @@ jobs:
     secrets: inherit
 
   apollo-nvidia:
-    name: apollo-nvidia
+    name: apollo-nvidia:stable
     uses: ./.github/workflows/reusable-build-bootc.yaml
     with:
       image-name: "apollo-nvidia"
       image-tag: "stable"
       profiles: "kernel-rolling nvidia"
+    secrets: inherit
+
+  apollo-lts:
+    name: apollo:stable-lts
+    uses: ./.github/workflows/reusable-build-bootc.yaml
+    with:
+      image-name: "apollo"
+      image-tag: "stable-lts"
+      profiles: "kernel-lts"
+    secrets: inherit
+
+  apollo-nvidia-lts:
+    name: apollo-nvidia:stable-lts
+    uses: ./.github/workflows/reusable-build-bootc.yaml
+    with:
+      image-name: "apollo-nvidia"
+      image-tag: "stable-lts"
+      profiles: "kernel-lts nvidia"
     secrets: inherit
