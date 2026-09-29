@@ -10,3 +10,6 @@ logo='/usr/share/apollo/assets/watermark.svg'
 [org.gnome.desktop.background]
 picture-uri="file:///usr/share/backgrounds/apollo/apollo-light.png"
 picture-uri-dark="file:///usr/share/backgrounds/apollo/apollo-dark.png"
+
+[org.gnome.shell]
+always-show-log-out=true
