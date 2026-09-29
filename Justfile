@@ -4,9 +4,11 @@ image_tag := env("BUILD_IMAGE_TAG", "latest")
 base_dir := env("BUILD_BASE_DIR", ".")
 filesystem := env("BUILD_FILESYSTEM", "ext4")
 build_args := env("BUILD_ARGUMENTS", "")
-just := just_executable()
+mkosi_executable := env("MKOSI_EXECUTABLE", "mkosi")
 container_runtime := env("CONTAINER_RUNTIME", `command -v podman >/dev/null 2>&1 && echo podman || echo docker`)
 profiles := env("BUILD_PROFILES", "")
+
+just := just_executable()
 
 [private]
 default:
@@ -28,7 +30,7 @@ build-bootc $profiles=profiles:
         args="$args --profile $profile"
     done
 
-    mkosi -B --debug --profile=bootc ${args}
+     {{ mkosi_executable }} -B --debug --profile=bootc ${args}
 
 lint:
     podman run --rm -it --entrypoint=bootc {{image}} container lint
@@ -96,5 +98,5 @@ rechunk:
         -t $IMG | podman load
 
 clean:
-    mkosi clean
+    {{ mkosi_executable }} clean
     sudo rm -r mkosi.tools/ mkosi.cache/
