@@ -1,6 +1,7 @@
 disable systemd-firstboot.service
 
 enable apparmor.service
+enable apparmor-firstboot.service
 enable bluetooth.service
 enable cups.service
 enable firewalld.service
