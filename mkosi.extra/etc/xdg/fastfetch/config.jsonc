@@ -15,8 +15,8 @@
     },
     "printRemaining": true,
     "preserveAspectRatio": false,
-    "recache": false,
     "position": "left",
+    "cache": true,
     "chafa": {
       "fgOnly": false,
       "symbols": "block+border+space-wide-inverted"
