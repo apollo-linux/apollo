@@ -13,7 +13,7 @@ Apollo is still experimental and should be considered to be in a **pre-alpha** s
 Download an ISO from the most recent [workflow run](https://github.com/apollo-linux/apollo/actions/workflows/build-iso.yml) (requires a GitHub account) and follow [this gist](https://gist.github.com/fizzyizzy05/c591efd7c97447ee4f907dfab417d2a3)
 
 ## Contributing
-Please read our [CONTRIBUTING.md file](CONTRIBUTING.md) for information around contributing to Apollo.
+Please read our [General Rules](https://docs.getapollo.dev/docs/contributing/general-rules/) and [Building Apollo](https://docs.getapollo.dev/docs/contributing/building-apollo/) documentation.
 
 ## Credits
 - [bootcrew](https://github.com/bootcrew/) for providing an arch-bootc based image.
