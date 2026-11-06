@@ -1,1 +1,1 @@
-kargs = ["quiet splash loglevel=3"]
+kargs = ["quiet splash loglevel=3 plymouth.use-simpledrm=1"]
