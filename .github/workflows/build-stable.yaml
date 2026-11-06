@@ -2,8 +2,7 @@
 name: Build stable & stable-lts images
 on:
   schedule:
-    # TODO: long-term, this should be weekly builds. Ideally closer to either beta or GA.
-    - cron: "05 10 * * *" # 10:05am UTC everyday
+    - cron: "05 10 * * TUE" # 10:05am UTC on Tuesday
   workflow_dispatch:
 
 permissions:
